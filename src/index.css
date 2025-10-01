@@ -1,0 +1,155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Netflix-inspired streaming design system */
+
+@layer base {
+  :root {
+    /* Dark streaming theme */
+    --background: 0 0% 8%;
+    --foreground: 0 0% 95%;
+
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 95%;
+
+    /* Netflix-inspired red accent */
+    --primary: 0 100% 50%;
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 0 100% 65%;
+
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 90%;
+
+    --muted: 0 0% 18%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 0 0% 20%;
+    --accent-foreground: 0 0% 95%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 25%;
+    --input: 0 0% 20%;
+    --ring: 0 100% 50%;
+
+    --radius: 0.75rem;
+
+    /* Streaming-specific colors */
+    --hero-gradient: linear-gradient(135deg, hsl(0 0% 8%) 0%, hsl(0 0% 12%) 50%, hsl(0 0% 8%) 100%);
+    --card-gradient: linear-gradient(145deg, hsl(0 0% 12%) 0%, hsl(0 0% 18%) 100%);
+    --primary-gradient: linear-gradient(135deg, hsl(0 100% 50%) 0%, hsl(0 100% 65%) 100%);
+    --overlay-gradient: linear-gradient(180deg, transparent 0%, hsl(0 0% 8% / 0.8) 100%);
+    
+    /* Shadows and glows */
+    --shadow-primary: 0 10px 30px -10px hsl(0 100% 50% / 0.3);
+    --shadow-card: 0 4px 20px -2px hsl(0 0% 0% / 0.5);
+    --glow-primary: 0 0 20px hsl(0 100% 50% / 0.4);
+    
+    /* Animation easing */
+    --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Already optimized for dark theme above */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    background-image: var(--hero-gradient);
+    background-attachment: fixed;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Hero button variant */
+  .btn-hero {
+    @apply bg-primary text-primary-foreground hover:opacity-90 transition-all duration-300 font-semibold px-8 py-3 rounded-lg;
+    box-shadow: var(--shadow-primary);
+  }
+
+  .btn-hero:hover {
+    box-shadow: var(--glow-primary);
+    transform: translateY(-2px);
+  }
+
+  /* Card hover animations */
+  .movie-card {
+    @apply bg-card rounded-lg overflow-visible transition-all duration-500 ease-out relative;
+    background: var(--card-gradient);
+    box-shadow: var(--shadow-card);
+    transform-origin: center;
+    margin: 8px 0; /* Add margin to prevent cut-off */
+  }
+
+  .movie-card:hover {
+    transform: scale(1.05) translateY(-8px);
+    box-shadow: 0 20px 40px -8px hsl(0 0% 0% / 0.7);
+    z-index: 10;
+  }
+
+  /* Gradient overlays */
+  .gradient-overlay {
+    background: var(--overlay-gradient);
+  }
+
+  /* Smooth transitions */
+  .smooth-transition {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  /* Glowing text effect */
+  .text-glow {
+    text-shadow: 0 0 20px hsl(0 100% 50% / 0.5);
+  }
+
+  /* Hide scrollbars */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Line clamp utility */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
