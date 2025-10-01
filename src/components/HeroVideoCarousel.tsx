@@ -1,6 +1,11 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { ChevronLeft, ChevronRight, Play, Plus, Info, Check, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import trainVideo from "src/assets/videos/train.mp4";
+import cryingManVideo from "src/assets/videos/cryingman.mp4";
+import underwaterVideo from "src/assets/videos/underwater.mp4";
+import corporateLifeVideo from "src/assets/videos/corporatelife.mp4";
+import walkingVideo from "src/assets/videos/walking.mp4";
 
 interface Slide {
   id: number;
@@ -18,7 +23,7 @@ const slides: Slide[] = [
   
   {
     id: 1,
-    src: "src/assets/videos/train.mp4",
+    src: trainVideo,
     title: "The Last Heist",
     description: "A high-stakes train robbery goes terribly wrong.",
     rating: "8.1/10",
@@ -29,7 +34,7 @@ const slides: Slide[] = [
   },
   {
     id: 2,
-    src: "src/assets/videos/cryingman.mp4",
+    src: cryingManVideo,
     title: "No Way Out",
     description: "A man's desperate fight for survival against all odds.",
     rating: "8.7/10",
@@ -40,7 +45,7 @@ const slides: Slide[] = [
   },
   {
     id: 3,
-    src: "src/assets/videos/underwater.mp4",
+    src: underwaterVideo,
     title: "Mermaid's Revenge",
     description: "A dark tale of vengeance from the depths.",
     rating: "7.9/10",
@@ -51,7 +56,7 @@ const slides: Slide[] = [
   },
   {
     id: 4,
-    src: "src/assets/videos/corporatelife.mp4",
+    src: corporateLifeVideo,
     title: "Corporate Deception",
     description: "A psychological thriller set in the cutthroat world of corporate espionage.",
     rating: "8.3/10",
@@ -62,7 +67,7 @@ const slides: Slide[] = [
   },
   {
     id: 5,
-    src: "src/assets/videos/walking.mp4",
+    src:  walkingVideo,
     title: "The Walk",
     description: "A gripping thriller about a man with a dangerous secret.",
     rating: "8.0/10",
