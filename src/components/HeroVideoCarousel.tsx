@@ -1,11 +1,11 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { ChevronLeft, ChevronRight, Play, Plus, Info, Check, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import trainVideo from "src/assets/videos/train.mp4";
-import cryingManVideo from "src/assets/videos/cryingman.mp4";
-import underwaterVideo from "src/assets/videos/underwater.mp4";
-import corporateLifeVideo from "src/assets/videos/corporatelife.mp4";
-import walkingVideo from "src/assets/videos/walking.mp4";
+import trainVideo from "../assets/videos/train.mp4";
+import cryingManVideo from "../assets/videos/cryingman.mp4";
+import underwaterVideo from "../assets/videos/underwater.mp4";
+import corporateLifeVideo from "../assets/videos/corporatelife.mp4";
+import walkingVideo from "../assets/videos/walking.mp4";
 
 interface Slide {
   id: number;
