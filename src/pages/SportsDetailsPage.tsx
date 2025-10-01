@@ -5,6 +5,17 @@ import { useEffect, useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
+import championshipdream from "../assets/latest/movies/championshipdreams.jpg";
+import goldengoal from "../assets/latest/movies/goldengoal.jpg";
+import javelinchampion from "../assets/latest/movies/javelinchampion.jpg";
+import courtkings from "../assets/latest/movies/court_kings.png";
+import eveningSession from "../assets/latest/movies/eveningsessions.png";
+import championwalibaat from "../assets/latest/movies/championwalibaatbelieveinblue.jpg";
+import t20worldcup from "../assets/latest/movies/t20worldcup.jpg";
+import indiaVsEngland from "../assets/latest/movies/indiavsenglandhockeyworldcupfinal.jpg";
+import footballChampion from "../assets/latest/movies/footballchampion.jpg";
+import indiaVspakistan from "../assets/latest/movies/indiavspak.jpg";
+
 interface SportsEvent {
   id: number;
   title: string;
@@ -37,7 +48,7 @@ export default function SportsDetailsPage() {
         {
           id: 23,
           title: "Championship Dreams",
-          image: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800&h=450&fit=crop",
+          image: championshipdream,
           sport: "Basketball",
           rating: "4.7",
           year: "2023",
@@ -51,7 +62,7 @@ export default function SportsDetailsPage() {
         {
           id: 24,
           title: "Golden Goal",
-          image: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&h=450&fit=crop",
+          image: goldengoal,
           
           rating: "4.8",
           year: "2023",
@@ -65,7 +76,7 @@ export default function SportsDetailsPage() {
         {
           id: 25,
           title: "Javelin Champion",
-          image: "https://img.olympics.com/images/image/private/t_s_pog_staticContent_hero_lg_2x/f_auto/primary/b12dtu4bpphqckahej9z",
+          image: javelinchampion,
           sport: "Athletics",
           rating: "4.6",
           year: "2023",
@@ -76,7 +87,7 @@ export default function SportsDetailsPage() {
         {
           id: 26,
           title: "Court Kings",
-          image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMui10jWK0SedXl3znKbiXxO6KFsxexSLmWw&s",
+          image: courtkings,
           sport: "Basketball",
           rating: "4.9",
           year: "2023",
@@ -87,7 +98,7 @@ export default function SportsDetailsPage() {
         {
           id: 27,
           title: "Evening Session",
-          image: "https://img.airtel.tv/unsafe/fit-in/500x0/filters:format(webp)/https://xstreamcp-assets-msp.streamready.in/assets/HOTSTAR_DTH/VIDEO/68c3a92991362751b2c64785/images/LANDSCAPE_169/1757960450897-h?o=production",
+          image: eveningSession,
           sport: "Cricket",
           rating: "4.8",
           year: "2023",
@@ -98,7 +109,7 @@ export default function SportsDetailsPage() {
         {
           id: 28,
           title: "Champion wali baat: Believe in blue",
-          image: "https://img1.hotstarext.com/image/upload/f_auto/sources/r1/cms/prod/2634/1757955972634-i",
+          image: championwalibaat,
           sport: "Cricket",
           rating: "4.8",
           year: "2023",
@@ -109,7 +120,7 @@ export default function SportsDetailsPage() {
         {
           id: 29,
           title: "T20 World Cup",
-          image: "https://img.olympics.com/images/image/private/t_s_pog_staticContent_hero_sm_2x/f_auto/primary/k7qe0iiahvgl3txbcfji",
+          image: t20worldcup,
           sport: "Cricket",
           rating: "4.8",
           year: "2023",
@@ -120,7 +131,7 @@ export default function SportsDetailsPage() {
         {
           id: 30,
           title: "India vs England Hockey World Cup Final",
-          image: "https://images.firstpost.com/uploads/2024/08/India-hockey-team-AP-1200-2024-08-99c5d0e27c763b3ea0f0fcb90d0ffa0f-1200x675.jpg",
+          image: indiaVsEngland,
           sport: "Hockey",
           rating: "4.9",
           year: "2024",
@@ -131,7 +142,7 @@ export default function SportsDetailsPage() {
         {
           id: 31,
           title: "Football Champion",
-          image: "https://cdn.britannica.com/94/162194-050-490306EC/Iker-Casillas-winner-association-football-team-victory-July-1-2012.jpg",
+          image: footballChampion,
           sport: "Football",
           rating: "4.8",
           year: "2023",
@@ -142,7 +153,7 @@ export default function SportsDetailsPage() {
         {
           id: 32,
           title: "India vs Pakistan",
-          image: "https://images.news18.com/ibnlive/uploads/2025/09/1757819181_IND-vs-PAK-5-2025-09-97f619a8b737abe3f8137f800a1b8a1b.jpg",
+          image: indiaVspakistan,
           sport: "Cricket",
           rating: "4.9",
           year: "2025",

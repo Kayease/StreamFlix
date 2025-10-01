@@ -1,5 +1,3 @@
-// Sample movie data for the streaming website
-
 // Import local images
 import digitalDreams from '@/assets/latest/movies/digitaldreams.jpg';
 import criminalJustice from '@/assets/latest/movies/criminaljustice.jpg';
@@ -11,6 +9,7 @@ import brokenMirrors from '@/assets/latest/movies/brokenmirrors.jpg';
 import cityOfDreams from '@/assets/latest/movies/cityofdreams.jpg';
 import darkStreets from '@/assets/latest/movies/darkstreets.jpg';
 import drishyam from '@/assets/latest/movies/drishyam.jpg';
+import echoes from '@/assets/latest/movies/echoes.jpg';
 import findTheFarzi from '@/assets/latest/movies/findthefarzi.jpg';
 import gameOfGreed from '@/assets/latest/movies/gameofgreed.jpg';
 import indianGameAdd from '@/assets/latest/movies/indiangameadda.jpg';
@@ -31,6 +30,12 @@ import theHeist from '@/assets/latest/movies/theheist.jpg';
 import tron from '@/assets/latest/movies/tron2.png';
 import bloodyy from '@/assets/latest/movies/bloodyy.png';
 import oceann from '@/assets/latest/movies/oceann.png';
+import zootopia from '@/assets/latest/movies/zootopia.webp';
+import rodies from '@/assets/latest/movies/rodies.jpg';
+import biggBoss from '@/assets/latest/movies/biggboss.jpg';
+import tradeUp from '@/assets/latest/movies/tradeup.jpg';
+import theVoice from '@/assets/latest/movies/thevoice.jpg';
+import sevendayslive from '@/assets/latest/movies/sevendayslive.png';
 
 export const movieSections = [
   {
@@ -138,7 +143,7 @@ export const movieSections = [
       {
         id: 12,
         title: "Tron",
-        image:tron,
+        image: tron,
         genre: "Drama",
         rating: "4.5",
         year: "2025",
@@ -285,7 +290,7 @@ export const movieSections = [
       {
         id: 37,
         title: "Galactic War",
-        image: "https://images.unsplash.com/photo-1446776877081-d282a0f896e2?w=400&h=225&fit=crop",
+        image: skyWarriors,
         genre: "Sci-Fi",
         rating: "4.9",
         year: "2024",
@@ -294,7 +299,7 @@ export const movieSections = [
       {
         id: 38,
         title: "City of Dreams",
-        image: "https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=400&h=225&fit=crop",
+        image: cityOfDreams,
         genre: "Drama",
         rating: "4.8",
         year: "2023",
@@ -312,7 +317,7 @@ export const movieSections = [
       {
         id: 40,
         title: "Echoes",
-        image: "https://m.media-amazon.com/images/M/MV5BM2ZmNDdhMDItNmUyOC00MDY1LWFhNzctYzk1ZjA5YjQ1ZDg4XkEyXkFqcGc@._V1_.jpg",
+        image: echoes,
         genre: "Drama",
         rating: "4.8",
         year: "2023",
@@ -385,7 +390,7 @@ export const movieSections = [
         rating: "4.8",
         year: "2023",
         description: "Sumair and Jaggi steal Sikandar's cocaine. Revenge follows: sikandar kidnaps sumair's son."
-      }, 
+      },
       {
         id: 49,
         title: "Raid",
@@ -394,7 +399,7 @@ export const movieSections = [
         rating: "4.8",
         year: "2023",
         description: "Fearless income tax officer Amay patnaik carries out a risky raid at the mension of the most powerful man."
-      }, 
+      },
       {
         id: 50,
         title: "Asur",
@@ -403,7 +408,7 @@ export const movieSections = [
         rating: "4.8",
         year: "2023",
         description: "A psychological crime thriller about a serial killer and the team trying to catch him."
-      }, 
+      },
       {
         id: 51,
         title: "Drishyam",
@@ -412,7 +417,7 @@ export const movieSections = [
         rating: "4.8",
         year: "2023",
         description: "A man goes to extreme lengths to protect his family from a crime they committed."
-      }, 
+      },
       {
         id: 52,
         title: "Illegal",
@@ -421,7 +426,7 @@ export const movieSections = [
         rating: "4.8",
         year: "2023",
         description: "A legal drama about a lawyer who defends the most notorious criminals."
-      }, 
+      },
       {
         id: 53,
         title: "Kerala Crime Files",
@@ -430,39 +435,7 @@ export const movieSections = [
         rating: "4.8",
         year: "2023",
         description: "A gripping crime investigation series based on true events."
-      }, 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      },
     ]
   },
   {
@@ -561,7 +534,7 @@ export const movieSections = [
       {
         id: 62,
         title: "Moana",
-        image: "https://snworksceo.imgix.net/cds/f4f2ba30-5e1e-4273-8360-d79a3012d12a.sized-1000x1000.jpg?w=1000&dpr=2",
+        image: moana,
         genre: "kids",
         rating: "4.8",
         year: "2024",
@@ -570,7 +543,7 @@ export const movieSections = [
       {
         id: 63,
         title: "Zootopia",
-        image: "https://disney.images.edge.bamgrid.com/ripcut-delivery/v2/variant/disney/71c47741-e31c-4911-8d2d-2ebc0278de75/compose?aspectRatio=1.78&format=webp&width=1200",
+        image: zootopia,
         genre: "entertainment",
         rating: "4.8",
         year: "2024",
@@ -582,123 +555,100 @@ export const movieSections = [
   },
 
   {
-    title:"Reality Shows",
-    movies:[
+    title: "Reality Shows",
+    movies: [
       {
-        id:64,
-        title:"Bigg Boss",
-        image:"https://img10.hotstar.com/image/upload/f_auto,q_auto/sources/r1/cms/prod/8899/1758045988899-i",
-        genre:"Drama",
-        rating:"4.9",
-        year:"2024",
-        description:"Your Host and Dost Salman khan is back.Brace! fro another high octane season of greatest reality show,serving entertainment and drama."  
+        id: 64,
+        title: "Bigg Boss",
+        image: biggBoss,
+        genre: "Drama",
+        rating: "4.9",
+        year: "2024",
+        description: "Your Host and Dost Salman khan is back.Brace! fro another high octane season of greatest reality show,serving entertainment and drama."
 
       },
       {
 
-        id:65,
-        title:"Trade Up",
-        image:"https://i.ytimg.com/vi/P6g24XUvGQE/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAHJ4T7rDHLc27M0ZVJLNdgEyiCFA",
-        genre:"Reality",
-        rating:"3.5",
-        year:"2025",
-        description:"Walk in with old tech,walk out with new? Earn upgrade by answering questions and making bold bets.trade up and win big!"  
-      },
-
-{
-
-        id:66,
-        title:"Indian game Adda",
-        image:"https://img1.hotstarext.com/image/upload/f_auto/sources/r1/cms/prod/3/1742659920003-h",
-        genre:"Reality",
-        rating:"3.5",
-        year:"2025",
-        description:"Welcome to Indian Game Adda! a wild game of wit and strategy"  
+        id: 65,
+        title: "Trade Up",
+        image: tradeUp,
+        genre: "Reality",
+        rating: "3.5",
+        year: "2025",
+        description: "Walk in with old tech,walk out with new? Earn upgrade by answering questions and making bold bets.trade up and win big!"
       },
 
       {
 
-        id:67,
-        title:"The Voice",
-        image:"https://m.media-amazon.com/images/M/MV5BM2VjMjJlMjctNWFlZC00OTRmLTljNmMtNTZkYmEwNDJiMjE5XkEyXkFqcGc@._V1_.jpg",
-        genre:"Drama",
-        rating:"4.9",
-        year:"2025",
-        description:"The word voice has multiple meanings across various contexts, including a reality television show, a property of human speech, a writing style, and a grammatical structure."  
-      },
-
-      {
-        id:68,
-        title:" The Society" , 
-        image:"https://img10.hotstar.com/image/upload/f_auto,q_auto/sources/r1/cms/prod/1464/1753121881464-i",
-        genre:"Reality",
-        rating:"2.9",
-        year:"2025",
-        description:"25 players live in a giant vault , divided by a class, in a brutal society social experiment. over 200 hours ,they fight to survive relentless challenges."
+        id: 66,
+        title: "Indian game Adda",
+        image: indianGameAdd,
+        genre: "Reality",
+        rating: "3.5",
+        year: "2025",
+        description: "Welcome to Indian Game Adda! a wild game of wit and strategy"
       },
 
       {
 
-        id:69,
-        title:"Rodies",
-        image:"https://img10.hotstar.com/image/upload/f_auto,q_auto/sources/r1/cms/prod/2164/1749726462164-i",
-        genre:"Drama",
-        rating:"4.1",
-        year:"2025",
-        description:"After 19 seasons , Roadies is back! season 20,Roadies XX,Introduces a thrilling new element:betrayal.Expect the unexpected"  
-      },
-      {
-
-        id:70,
-        title:"GAME OF GREED",
-        image:"https://i.ytimg.com/vi/ipkE1aMQ6sE/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCb9lDyAIqEBGRSd7L0h4e3yd-xxg",
-        genre:"Entertainment",
-        rating:"4.1",
-        year:"2025",
-        description:"Two contestants face the Snatch or Share dilemma  for big money. Tension rises ,secrets are hinted."  
+        id: 67,
+        title: "The Voice",
+        image: theVoice,
+        genre: "Drama",
+        rating: "4.9",
+        year: "2025",
+        description: "The word voice has multiple meanings across various contexts, including a reality television show, a property of human speech, a writing style, and a grammatical structure."
       },
 
       {
 
-        id:71,
-        title:"Find the Farzi",
-        image:"http://img1.hotstarext.com/image/upload/f_auto/sources/r1/cms/prod/4469/1748542634469-h",
-        genre:"Drama",
-        rating:"4.1",
-        year:"2025",
-        description:"find the farzi is a fun game  show where 5 players spot the odd one out .hosted by RJ karishma."  
+        id: 69,
+        title: "Roadies",
+        image: rodies,
+        genre: "Drama",
+        rating: "4.1",
+        year: "2025",
+        description: "After 19 seasons , Roadies is back! season 20,Roadies XX,Introduces a thrilling new element:betrayal.Expect the unexpected"
+      },
+      {
+        id: 70,
+        title: "GAME OF GREED",
+        image: gameOfGreed,
+        genre: "Entertainment",
+        rating: "4.1",
+        year: "2025",
+        description: "Two contestants face the Snatch or Share dilemma  for big money. Tension rises ,secrets are hinted."
       },
 
       {
 
-        id:72,
-        title:"7 Days live",
-        image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrtef3isGz52ZKCjcA1vGshJn2Z_v-f4BOpg&s",
-        genre:"Entertainment",
-        rating:"4.1",
-        year:"2025",
-        description:"Two creators duo.15 hours live daily . Nonstop entertainment,wild challenges,and chaos. the duo with the most views by  Day 7 wins!"  
+        id: 71,
+        title: "Find the Farzi",
+        image: findTheFarzi,
+        genre: "Drama",
+        rating: "4.1",
+        year: "2025",
+        description: "find the farzi is a fun game  show where 5 players spot the odd one out .hosted by RJ karishma."
       },
-
       {
 
-        id:73,
-        title:"Rodies",
-        image:"https://img10.hotstar.com/image/upload/f_auto,q_auto/sources/r1/cms/prod/2164/1749726462164-i",
-        genre:"Drama",
-        rating:"4.1",
-        year:"2025",
-        description:"After 19 seasons , Roadies is back! season 20,Roadies XX,Introduces a thrilling new element:betrayal.Expect the unexpected"  
+        id: 72,
+        title: "7 Days live",
+        image: sevendayslive,
+        genre: "Entertainment",
+        rating: "4.1",
+        year: "2025",
+        description: "Two creators duo.15 hours live daily . Nonstop entertainment,wild challenges,and chaos. the duo with the most views by  Day 7 wins!"
       },
-
-
-
-  
-
-
+      {
+        id: 73,
+        title: "Roadies",
+        image: rodies,
+        genre: "Drama",
+        rating: "4.1",
+        year: "2025",
+        description: "After 19 seasons , Roadies is back! season 20,Roadies XX,Introduces a thrilling new element:betrayal.Expect the unexpected"
+      },
     ]
-
   }
-
-   
 ];
