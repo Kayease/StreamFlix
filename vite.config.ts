@@ -4,7 +4,7 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig(() => ({
-  base: "/streamflix/",
+  base: "/",
   build: {
     outDir: "dist",
     chunkSizeWarningLimit: 2000,
@@ -12,7 +12,7 @@ export default defineConfig(() => ({
   server: {
     host: "::",
     port: 8080,
-    open: "/streamflix/",
+    open: "/",
     strictPort: false,
   },
   plugins: [react()],
