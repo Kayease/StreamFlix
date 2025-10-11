@@ -5,6 +5,16 @@ import { Button } from '@/components/ui/button';
 import { useEffect, useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import championshipdream from '/src/assets/latest/movies/championshipdreams.jpg'
+import goldengoal from '/src/assets/latest/movies/goldengoal.jpg' 
+import javelinchampion from '/src/assets/latest/movies/javelinchampion.jpg'
+import indiavsenglandhockeyworldcupfinal from '/src/assets/latest/movies/indiavsenglandhockeyworldcupfinal.jpg'
+import championwalibaatbelieveinblue from '/src/assets/latest/movies/championwalibaatbelieveinblue.jpg'
+import t20worldcup from '/src/assets/latest/movies/t20worldcup.jpg'
+import footballchampion from '/src/assets/latest/movies/footballchampion.jpg'
+import indiavspak from '/src/assets/latest/movies/indiavspak.jpg'
+import courtkings from '/src/assets/latest/movies/court_kings.png'
+import eveningSession from '/src/assets/latest/movies/eveningsessions.png'
 
 interface SportsEvent {
   id: number;
@@ -34,39 +44,32 @@ export default function SportsDetailsPage() {
       // Get all sports events from localStorage or use sample data
       const savedEvents = JSON.parse(localStorage.getItem('sportsEvents') || '[]');
       const sampleEvents = [
-        // Sample events that match the SportsPage data structure
         {
           id: 23,
           title: "Championship Dreams",
-          image: "/src/assets/latest/movies/championshipdreams.jpg",
+          image: championshipdream,
           sport: "Basketball",
           rating: "4.7",
           year: "2023",
-          description: "Young athletes fight for their dreams in this inspiring sports drama. Follow the journey of a high school basketball team as they overcome challenges and personal struggles to reach the state championships.",
+          description: "Young athletes fight for their dreams in this inspiring sports drama.",
           isLive: false,
-          date: "2023-10-15",
-          location: "Madison Square Garden, NY",
-          teams: ["Westside High", "Eastside High"],
-          duration: "2h 15m"
+          date: "2023-10-15"
         },
         {
           id: 24,
           title: "Golden Goal",
-          image: "/src/assets/latest/movies/goldengoal.jpg",
-          
+          image: goldengoal,
+          sport: "Soccer",
           rating: "4.8",
           year: "2023",
-          description: "The journey of a soccer team from underdogs to world champions. Experience the passion, drama, and excitement of international soccer through the eyes of the players and their dedicated coach.",
+          description: "The journey of a soccer team from underdogs to world champions.",
           isLive: true,
-          date: "2023-11-20",
-          location: "Camp Nou, Barcelona",
-          teams: ["Barcelona FC", "Real Madrid"],
-          duration: "1h 55m"
+          date: "2023-11-20"
         },
         {
           id: 25,
           title: "Javelin Champion",
-          image: "/src/assets/latest/movies/javelinchampion.jpg",
+          image: javelinchampion,
           sport: "Athletics",
           rating: "4.6",
           year: "2023",
@@ -77,7 +80,7 @@ export default function SportsDetailsPage() {
         {
           id: 26,
           title: "Court Kings",
-          image: "/src/assets/latest/movies/basketball.jpg",
+          image: courtkings,
           sport: "Basketball",
           rating: "4.9",
           year: "2023",
@@ -88,7 +91,7 @@ export default function SportsDetailsPage() {
         {
           id: 27,
           title: "Evening Session",
-          image: "/src/assets/latest/movies/indiangameadda.jpg",
+          image: eveningSession,
           sport: "Cricket",
           rating: "4.8",
           year: "2023",
@@ -99,7 +102,7 @@ export default function SportsDetailsPage() {
         {
           id: 28,
           title: "Champion wali baat: Believe in blue",
-          image: "/src/assets/latest/movies/championwalibaatbelieveinblue.jpg",
+          image: championwalibaatbelieveinblue,
           sport: "Cricket",
           rating: "4.8",
           year: "2023",
@@ -110,7 +113,7 @@ export default function SportsDetailsPage() {
         {
           id: 29,
           title: "T20 World Cup",
-          image: "/src/assets/latest/movies/t20worldcup.jpg",
+          image: t20worldcup,
           sport: "Cricket",
           rating: "4.8",
           year: "2023",
@@ -121,7 +124,7 @@ export default function SportsDetailsPage() {
         {
           id: 30,
           title: "India vs England Hockey World Cup Final",
-          image: "/src/assets/latest/movies/indiavsenglandhockeyworldcupfinal.jpg",
+          image: indiavsenglandhockeyworldcupfinal,
           sport: "Hockey",
           rating: "4.9",
           year: "2024",
@@ -132,7 +135,7 @@ export default function SportsDetailsPage() {
         {
           id: 31,
           title: "Football Champion",
-          image: "/src/assets/latest/movies/footballchampion.jpg",
+          image: footballchampion,
           sport: "Football",
           rating: "4.8",
           year: "2023",
@@ -143,7 +146,7 @@ export default function SportsDetailsPage() {
         {
           id: 32,
           title: "India vs Pakistan",
-          image: "/src/assets/latest/movies/indiavspak.jpg",
+          image: indiavspak,
           sport: "Cricket",
           rating: "4.9",
           year: "2025",

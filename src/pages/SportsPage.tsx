@@ -10,6 +10,16 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useState, useEffect } from "react";
 import { toast } from "@/components/ui/use-toast";
 import championshipdream from '/src/assets/latest/movies/championshipdreams.jpg'
+import goldengoal from '/src/assets/latest/movies/goldengoal.jpg' 
+import javelinchampion from '/src/assets/latest/movies/javelinchampion.jpg'
+import indiavsenglandhockeyworldcupfinal from '/src/assets/latest/movies/indiavsenglandhockeyworldcupfinal.jpg'
+import championwalibaatbelieveinblue from '/src/assets/latest/movies/championwalibaatbelieveinblue.jpg'
+import t20worldcup from '/src/assets/latest/movies/t20worldcup.jpg'
+import footballchampion from '/src/assets/latest/movies/footballchampion.jpg'
+import indiavspak from '/src/assets/latest/movies/indiavspak.jpg'
+import courtkings from '/src/assets/latest/movies/court_kings.png'
+import eveningSession from '/src/assets/latest/movies/eveningsessions.png'
+
 
 interface SportsEvent {
   id: number;
@@ -108,7 +118,7 @@ export default function SportsPage() {
     {
       id: 24,
       title: "Golden Goal",
-      image: "/src/assets/latest/movies/goldengoal.jpg",
+      image: goldengoal,
       sport: "Soccer",
       rating: "4.8",
       year: "2023",
@@ -119,7 +129,7 @@ export default function SportsPage() {
     {
       id: 25,
       title: "Javelin Champion",
-      image: "/src/assets/latest/movies/javelinchampion.jpg",
+      image: javelinchampion,
       sport: "Athletics",
       rating: "4.6",
       year: "2023",
@@ -130,7 +140,7 @@ export default function SportsPage() {
     {
       id: 26,
       title: "Court Kings",
-      image: "/src/assets/latest/movies/indiavsenglandhockeyworldcupfinal.jpg",
+      image: courtkings,
       sport: "Basketball",
       rating: "4.9",
       year: "2023",
@@ -141,7 +151,7 @@ export default function SportsPage() {
     {
       id: 27,
       title: "Evening Session",
-      image: "/src/assets/latest/movies/indiangameadda.jpg",
+      image: eveningSession,
       sport: "Cricket",
       rating: "4.8",
       year: "2023",
@@ -152,7 +162,7 @@ export default function SportsPage() {
     {
       id: 28,
       title: "Champion wali baat: Believe in blue",
-      image: "/src/assets/latest/movies/championwalibaatbelieveinblue.jpg",
+      image: championwalibaatbelieveinblue,
       sport: "Cricket",
       rating: "4.8",
       year: "2023",
@@ -163,7 +173,7 @@ export default function SportsPage() {
     {
       id: 29,
       title: "T20 World Cup",
-      image: "/src/assets/latest/movies/t20worldcup.jpg",
+      image: t20worldcup,
       sport: "Cricket",
       rating: "4.8",
       year: "2023",
@@ -174,7 +184,7 @@ export default function SportsPage() {
     {
       id: 30,
       title: "India vs England Hockey World Cup Final",
-      image: "/src/assets/latest/movies/indiavsenglandhockeyworldcupfinal.jpg",
+      image: indiavsenglandhockeyworldcupfinal,
       sport: "Hockey",
       rating: "4.9",
       year: "2024",
@@ -185,7 +195,7 @@ export default function SportsPage() {
     {
       id: 31,
       title: "Football Champion",
-      image: "/src/assets/latest/movies/footballchampion.jpg",
+      image: footballchampion,
       sport: "Football",
       rating: "4.8",
       year: "2023",
@@ -196,7 +206,7 @@ export default function SportsPage() {
     {
       id: 32,
       title: "India vs Pakistan",
-      image: "/src/assets/latest/movies/indiavsenglandhockeyworldcupfinal.jpg",
+      image: indiavspak,
       sport: "Cricket",
       rating: "4.9",
       year: "2025",
