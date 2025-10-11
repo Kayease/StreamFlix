@@ -82,6 +82,8 @@ export default function HeroVideoCarousel() {
   const [current, setCurrent] = useState<number>(0);
   const [watchlist, setWatchlist] = useState<number[]>([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [loadedVideos, setLoadedVideos] = useState<Set<number>>(new Set());
+  const [isLoading, setIsLoading] = useState(true);
   const modalRef = useRef<HTMLDivElement>(null);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
@@ -166,10 +168,33 @@ export default function HeroVideoCarousel() {
   const nextSlide = () => setCurrent((prev) => (prev + 1) % slides.length);
   const prevSlide = () => setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
 
+  // Load videos progressively - only load current and next video
+  useEffect(() => {
+    const loadVideo = (index: number) => {
+      if (!loadedVideos.has(index)) {
+        setLoadedVideos(prev => new Set([...prev, index]));
+      }
+    };
+
+    // Load current video immediately
+    loadVideo(current);
+    
+    // Load next video for smooth transitions
+    const nextIndex = (current + 1) % slides.length;
+    loadVideo(nextIndex);
+
+    // Load previous video for smooth back navigation
+    const prevIndex = (current - 1 + slides.length) % slides.length;
+    loadVideo(prevIndex);
+  }, [current, loadedVideos]);
+
   // Auto-play current video & intersection observer
   useEffect(() => {
     const currentVideo = videoRefs.current[current];
-    if (currentVideo) currentVideo.play().catch(() => { });
+    if (currentVideo && loadedVideos.has(current)) {
+      setIsLoading(false);
+      currentVideo.play().catch(() => { });
+    }
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -191,24 +216,44 @@ export default function HeroVideoCarousel() {
       if (heroSection) observer.unobserve(heroSection);
       videoRefs.current.forEach(video => video?.pause());
     };
-  }, [current]);
+  }, [current, loadedVideos]);
 
   return (
     <div id="hero-section" className="relative w-full h-[100vh] min-h-[800px] overflow-hidden">
 
+      {/* Loading State */}
+      {isLoading && (
+        <div className="absolute inset-0 bg-black flex items-center justify-center z-50">
+          <div className="text-white text-xl">Loading...</div>
+        </div>
+      )}
+
       {/* Slides */}
       {slides.map((slide, index) => (
         <div key={slide.id} className={`absolute inset-0 transition-opacity duration-1000 ${index === current ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'}`}>
-          <video
-            ref={el => videoRefs.current[index] = el}
-            src={slide.src}
-            autoPlay={index === current}
-            muted
-            loop={false}
-            playsInline
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 pointer-events-none`}
-            onEnded={() => { if (index === current) nextSlide(); }}
-          />
+          {loadedVideos.has(index) ? (
+            <video
+              ref={el => videoRefs.current[index] = el}
+              src={slide.src}
+              autoPlay={index === current}
+              muted
+              loop={false}
+              playsInline
+              preload="metadata"
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 pointer-events-none`}
+              onEnded={() => { if (index === current) nextSlide(); }}
+              onLoadedData={() => {
+                if (index === current) setIsLoading(false);
+              }}
+            />
+          ) : (
+            <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
+              <div className="text-white text-center">
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white mx-auto mb-4"></div>
+                <div>Loading video...</div>
+              </div>
+            </div>
+          )}
 
           {/* Overlay & Content */}
           <div className="absolute inset-0 z-30 flex flex-col justify-end p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 pb-24 sm:pb-24 md:pb-24 lg:pb-28 xl:pb-32 pointer-events-auto bg-gradient-to-t from-black/90 via-black/70 to-transparent">
