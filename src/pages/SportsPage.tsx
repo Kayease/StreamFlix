@@ -9,6 +9,7 @@ import ContentSection from '@/components/ContentSection';
 import { useNavigate, Link } from 'react-router-dom';
 import { useState, useEffect } from "react";
 import { toast } from "@/components/ui/use-toast";
+import championshipdream from '/src/assets/latest/movies/championshipdreams.jpg'
 
 interface SportsEvent {
   id: number;
@@ -96,7 +97,7 @@ export default function SportsPage() {
     {
       id: 23,
       title: "Championship Dreams",
-      image: "/src/assets/latest/movies/championshipdreams.jpg",
+      image: championshipdream,
       sport: "Basketball",
       rating: "4.7",
       year: "2023",
