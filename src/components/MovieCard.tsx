@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Play, Plus, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { VideoPlayer } from './VideoPlayer';
+import { toast } from '@/components/ui/use-toast';
 
 interface MovieCardProps {
   id: number;
@@ -37,7 +38,35 @@ const MovieCard = memo(({ id, title, image, genre, rating, year, description }: 
     e.stopPropagation();
     navigate(`/movie/${id}`);
   }, [id, navigate]);
+
   const closeModal = useCallback(() => setIsModalOpen(false), []);
+
+  const toggleWatchlist = useCallback((e: React.MouseEvent) => {
+    e.stopPropagation();
+    const watchlist = JSON.parse(localStorage.getItem('watchlist') || '[]');
+    
+    if (isInWatchlist) {
+      const newWatchlist = watchlist.filter((item: any) => item.title !== title);
+      localStorage.setItem('watchlist', JSON.stringify(newWatchlist));
+      setIsInWatchlist(false);
+      
+      toast({
+        title: "Removed from Watchlist",
+        description: `${title} has been removed from your wishlist.`,
+        variant: "destructive",
+      });
+    } else {
+      const movieData = { id, title, image, genre, rating, year, description };
+      localStorage.setItem('watchlist', JSON.stringify([...watchlist, movieData]));
+      setIsInWatchlist(true);
+      
+      toast({
+        title: "Added to Watchlist",
+        description: `${title} has been added to your wishlist!`,
+        variant: "default",
+      });
+    }
+  }, [isInWatchlist, id, title, image, genre, rating, year, description]);
 
   return (
     <div 
@@ -98,32 +127,14 @@ const MovieCard = memo(({ id, title, image, genre, rating, year, description }: 
               <Button 
                 size="sm"
                 variant="outline"
-                className="h-7 sm:h-8 w-7 sm:w-8 p-0 flex items-center justify-center" 
-                className="h-6 w-6 sm:h-7 sm:w-7 border-white/30 text-white hover:bg-white/10 transition-colors flex items-center justify-center"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  const newWatchlistStatus = !isInWatchlist;
-                  setIsInWatchlist(newWatchlistStatus);
-                  
-                  // Update localStorage
-                  const watchlist = JSON.parse(localStorage.getItem('watchlist') || '[]');
-                  if (newWatchlistStatus) {
-                    watchlist.push({ title, image, genre, rating, year, description });
-                    alert(`${title} added to watchlist!`);
-                  } else {
-                    const index = watchlist.findIndex((item: any) => item.title === title);
-                    if (index > -1) {
-                      watchlist.splice(index, 1);
-                    }
-                  }
-                  localStorage.setItem('watchlist', JSON.stringify(watchlist));
-                }}
-                aria-label={isInWatchlist ? "Remove from watchlist" : "Add to watchlist"}
+                className="h-7 sm:h-8 w-7 sm:w-8 p-0 flex items-center justify-center border-white/30 text-white hover:bg-white/10 transition-colors"
+                onClick={toggleWatchlist}
               >
-                {isInWatchlist ? 
-                  <Check className="h-3 w-3 text-green-500" /> : 
-                  <Plus className="h-3 w-3" />
-                }
+                {isInWatchlist ? (
+                  <Check className="h-4 w-4" />
+                ) : (
+                  <Plus className="h-4 w-4" />
+                )}
               </Button>
             </div>
           </div>

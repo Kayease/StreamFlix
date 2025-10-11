@@ -1,20 +1,10 @@
 import { useParams, useNavigate } from 'react-router-dom';
+import { toast } from '@/components/ui/use-toast';
 import { ArrowLeft, Play, Plus, Check, Calendar, Clock, Radio } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useEffect, useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-
-import championshipdream from "../assets/latest/movies/championshipdreams.jpg";
-import goldengoal from "../assets/latest/movies/goldengoal.jpg";
-import javelinchampion from "../assets/latest/movies/javelinchampion.jpg";
-import courtkings from "../assets/latest/movies/court_kings.png";
-import eveningSession from "../assets/latest/movies/eveningsessions.png";
-import championwalibaat from "../assets/latest/movies/championwalibaatbelieveinblue.jpg";
-import t20worldcup from "../assets/latest/movies/t20worldcup.jpg";
-import indiaVsEngland from "../assets/latest/movies/indiavsenglandhockeyworldcupfinal.jpg";
-import footballChampion from "../assets/latest/movies/footballchampion.jpg";
-import indiaVspakistan from "../assets/latest/movies/indiavspak.jpg";
 
 interface SportsEvent {
   id: number;
@@ -48,7 +38,7 @@ export default function SportsDetailsPage() {
         {
           id: 23,
           title: "Championship Dreams",
-          image: championshipdream,
+          image: "/src/assets/latest/movies/championshipdreams.jpg",
           sport: "Basketball",
           rating: "4.7",
           year: "2023",
@@ -62,7 +52,7 @@ export default function SportsDetailsPage() {
         {
           id: 24,
           title: "Golden Goal",
-          image: goldengoal,
+          image: "/src/assets/latest/movies/goldengoal.jpg",
           
           rating: "4.8",
           year: "2023",
@@ -76,7 +66,7 @@ export default function SportsDetailsPage() {
         {
           id: 25,
           title: "Javelin Champion",
-          image: javelinchampion,
+          image: "/src/assets/latest/movies/javelinchampion.jpg",
           sport: "Athletics",
           rating: "4.6",
           year: "2023",
@@ -87,7 +77,7 @@ export default function SportsDetailsPage() {
         {
           id: 26,
           title: "Court Kings",
-          image: courtkings,
+          image: "/src/assets/latest/movies/basketball.jpg",
           sport: "Basketball",
           rating: "4.9",
           year: "2023",
@@ -98,7 +88,7 @@ export default function SportsDetailsPage() {
         {
           id: 27,
           title: "Evening Session",
-          image: eveningSession,
+          image: "/src/assets/latest/movies/indiangameadda.jpg",
           sport: "Cricket",
           rating: "4.8",
           year: "2023",
@@ -109,7 +99,7 @@ export default function SportsDetailsPage() {
         {
           id: 28,
           title: "Champion wali baat: Believe in blue",
-          image: championwalibaat,
+          image: "/src/assets/latest/movies/championwalibaatbelieveinblue.jpg",
           sport: "Cricket",
           rating: "4.8",
           year: "2023",
@@ -120,7 +110,7 @@ export default function SportsDetailsPage() {
         {
           id: 29,
           title: "T20 World Cup",
-          image: t20worldcup,
+          image: "/src/assets/latest/movies/t20worldcup.jpg",
           sport: "Cricket",
           rating: "4.8",
           year: "2023",
@@ -131,7 +121,7 @@ export default function SportsDetailsPage() {
         {
           id: 30,
           title: "India vs England Hockey World Cup Final",
-          image: indiaVsEngland,
+          image: "/src/assets/latest/movies/indiavsenglandhockeyworldcupfinal.jpg",
           sport: "Hockey",
           rating: "4.9",
           year: "2024",
@@ -142,7 +132,7 @@ export default function SportsDetailsPage() {
         {
           id: 31,
           title: "Football Champion",
-          image: footballChampion,
+          image: "/src/assets/latest/movies/footballchampion.jpg",
           sport: "Football",
           rating: "4.8",
           year: "2023",
@@ -153,7 +143,7 @@ export default function SportsDetailsPage() {
         {
           id: 32,
           title: "India vs Pakistan",
-          image: indiaVspakistan,
+          image: "/src/assets/latest/movies/indiavspak.jpg",
           sport: "Cricket",
           rating: "4.9",
           year: "2025",
@@ -195,7 +185,12 @@ export default function SportsDetailsPage() {
     
     if (isInWatchlist) {
       updatedWatchlist = watchlist.filter((item: any) => item.id !== sportsEvent.id);
-      alert(`❌ ${sportsEvent.title} has been removed from your watchlist.`);
+      toast({
+        title: 'Removed from Watchlist',
+        description: `${sportsEvent.title} has been removed from your watchlist.`,
+        duration: 3000,
+        className: 'bg-destructive text-white border-0',
+      });
     } else {
       const newItem = {
         id: sportsEvent.id,
@@ -209,7 +204,12 @@ export default function SportsDetailsPage() {
         date: sportsEvent.date
       };
       updatedWatchlist = [...watchlist, newItem];
-      alert(`🏆 ${sportsEvent.title} has been added to your watchlist!`);
+      toast({
+        title: 'Added to Watchlist',
+        description: `${sportsEvent.title} has been added to your watchlist!`,
+        duration: 3000,
+        className: 'bg-primary text-white border-0',
+      });
     }
     
     localStorage.setItem('sportsWatchlist', JSON.stringify(updatedWatchlist));
@@ -354,7 +354,14 @@ export default function SportsDetailsPage() {
               <div className="flex flex-wrap gap-3 mb-6">
                 <Button 
                   className="bg-primary hover:bg-primary/90 text-primary-foreground"
-                  onClick={() => alert(sportsEvent.isLive ? 'Starting live stream...' : 'Starting replay...')}
+                  onClick={() => {
+                    toast({
+                      title: sportsEvent.isLive ? 'Starting Live Stream' : 'Starting Replay',
+                      description: sportsEvent.isLive ? 'Preparing your live stream...' : 'Loading the replay...',
+                      duration: 3000,
+                      className: 'bg-primary text-white border-0',
+                    });
+                  }}
                 >
                   <Play className="mr-2 h-4 w-4" /> 
                   {sportsEvent.isLive ? 'Watch Live' : 'Watch Replay'}

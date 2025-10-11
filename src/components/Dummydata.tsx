@@ -1,27 +1,10 @@
-import bossBaby from '@/assets/latest/movies/bossbaby.jpg';
-import brokenMirrors from '@/assets/latest/movies/brokenmirrors.jpg';
-import cityOfDreams from '@/assets/latest/movies/cityofdreams.jpg';
-import drishyam from '@/assets/latest/movies/drishyam.jpg';
-import indianGameAdd from '@/assets/latest/movies/indiangameadda.jpg';
-import keralaCrimeFiles from '@/assets/latest/movies/keralacrimefiles.jpg';
-import moana from '@/assets/latest/movies/moana.jpg';
-import zootopia from '@/assets/latest/movies/zootopia.webp';
-import biggBoss from '@/assets/latest/movies/biggboss.jpg';
-import tradeUp from '@/assets/latest/movies/tradeup.jpg';
-import theVoice from '@/assets/latest/movies/thevoice.jpg';
-import thunderstrike from '@/assets/latest/movies/thunderstrike.jpg';
-import comedycentral from '@/assets/latest/movies/comedycentrals.png';
-import thelastletter from '@/assets/latest/movies/thelastletter.jpg';
-import asur from '@/assets/latest/movies/asur.png';
-import thesociety from '@/assets/latest/movies/thesociety.jpg';
-import thegooddinasaur from '@/assets/latest/movies/thegooddinasaur.png';
-import luca from '@/assets/latest/movies/luca.png';
+import { title } from "process";
 
 const DummyWatchlistItems=[
 {
     id:1,
     title: "Thunder Strike",
-    image: thunderstrike,
+    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=225&fit=crop",
     genre: "Action",
     rating: "4.8",
     year: "2023",
@@ -31,7 +14,7 @@ const DummyWatchlistItems=[
 {
     id:2,
     title: "Kerala Crime files",
-        image: keralaCrimeFiles,
+        image: "https://m.media-amazon.com/images/M/MV5BYTQ1NDRlOTgtZTFlMS00YWQyLWJiOTYtNzE4ZmVkYTU5OWJkXkEyXkFqcGc@._V1_.jpg",
         genre: "Crime",
         rating: "4.8",
         year: "2023",
@@ -42,7 +25,7 @@ const DummyWatchlistItems=[
 {
     id:3,
     title: "Broken Mirrors",
-    image: brokenMirrors,
+    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=225&fit=crop",
     genre: "Drama",
     rating: "4.9",
     year: "2023",
@@ -54,7 +37,7 @@ const DummyWatchlistItems=[
   
         id: 34,
         title: "Comedy Central",
-        image: comedycentral,
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmjfnoKGMT-UbB-2GPBmMtxJtiH3wg8kPJBw&s",
         genre: "Comedy",
         rating: "4.6",
         year: "2024",
@@ -64,7 +47,7 @@ const DummyWatchlistItems=[
       {
         id: 38,
         title: "City of Dreams",
-        image: cityOfDreams,
+        image: "https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=400&h=225&fit=crop",
         genre: "Drama",
         rating: "4.8",
         year: "2023",
@@ -73,7 +56,7 @@ const DummyWatchlistItems=[
       {
         id: 39,
         title: "The Last Letter",
-        image: thelastletter,
+        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=225&fit=crop",
         genre: "Drama",
         rating: "4.6",
         year: "2023",
@@ -87,7 +70,7 @@ const DummyFavoritesItems=[
     {
         id: 50,
         title: "Asur",
-        image: asur,
+        image: " https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS95tygQP8K7hiIQJx_yGlYGrJBWvfxKvqAVw&s",
         rating: "4.8",
         year: "2023",
         description: "Corrupt cops face justice in this gritty crime drama."
@@ -96,7 +79,7 @@ const DummyFavoritesItems=[
       {
         id: 51,
         title: "Drishyam",
-        image: drishyam,
+        image: "https://upload.wikimedia.org/wikipedia/en/thumb/8/8a/Drishyam_2015_film.jpg/250px-Drishyam_2015_film.jpg",
         genre: "Crime",
         rating: "4.8",
         year: "2023",
@@ -106,7 +89,7 @@ const DummyFavoritesItems=[
       {
         id: 62,
         title: "Moana",
-        image: moana,
+        image: "https://snworksceo.imgix.net/cds/f4f2ba30-5e1e-4273-8360-d79a3012d12a.sized-1000x1000.jpg?w=1000&dpr=2",
         genre: "kids",
         rating: "4.8",
         year: "2024",
@@ -120,7 +103,7 @@ const DummyHistoryItems=[
     {
         id: 59,
         title: "Boss Baby",
-        image: bossBaby,
+        image: "https://img10.hotstar.com/image/upload/f_auto,q_auto/sources/r1/cms/prod/3717/1740399723717-i",
         genre: "kids",
         rating: "4.8",
         year: "2024",
@@ -129,7 +112,7 @@ const DummyHistoryItems=[
       {
         id: 60,
         title: "The Good dinosour",
-        image: thegooddinasaur,
+        image: "https://jonnegroni.com/wp-content/uploads/2015/11/arlo_spot_the_good_dinosaur-hd.jpg",
         genre: "Family",
         rating: "3.8",
         year: "2024",
@@ -138,7 +121,7 @@ const DummyHistoryItems=[
       {
         id: 61,
         title: "LUCA",
-        image: luca,
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwyZR2d0hKQ80lbwAJtuCwzj3sDI3wEn0J9Q&s",
         genre: "entertainment",
         rating: "3.8",
         year: "2024",
@@ -147,7 +130,7 @@ const DummyHistoryItems=[
       {
         id: 62,
         title: "Moana",
-        image: moana,
+        image: "https://snworksceo.imgix.net/cds/f4f2ba30-5e1e-4273-8360-d79a3012d12a.sized-1000x1000.jpg?w=1000&dpr=2",
         genre: "kids",
         rating: "4.8",
         year: "2024",
@@ -156,7 +139,7 @@ const DummyHistoryItems=[
       {
         id: 63,
         title: "Zootopia",
-        image: zootopia,
+        image: "https://disney.images.edge.bamgrid.com/ripcut-delivery/v2/variant/disney/71c47741-e31c-4911-8d2d-2ebc0278de75/compose?aspectRatio=1.78&format=webp&width=1200",
         genre: "entertainment",
         rating: "4.8",
         year: "2024",
@@ -169,7 +152,7 @@ const DummyHistoryItems=[
       {
         id:64,
         title:"Bigg Boss",
-        image:biggBoss,
+        image:"https://img10.hotstar.com/image/upload/f_auto,q_auto/sources/r1/cms/prod/8899/1758045988899-i",
         genre:"Drama",
         rating:"4.9",
         year:"2024",
@@ -180,7 +163,7 @@ const DummyHistoryItems=[
 
         id:65,
         title:"Trade Up",
-        image:tradeUp,
+        image:"https://i.ytimg.com/vi/P6g24XUvGQE/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAHJ4T7rDHLc27M0ZVJLNdgEyiCFA",
         genre:"Reality",
         rating:"3.5",
         year:"2025",
@@ -191,7 +174,7 @@ const DummyHistoryItems=[
 
         id:66,
         title:"Indian game Adda",
-        image:indianGameAdd,
+        image:"https://img1.hotstarext.com/image/upload/f_auto/sources/r1/cms/prod/3/1742659920003-h",
         genre:"Reality",
         rating:"3.5",
         year:"2025",
@@ -202,7 +185,7 @@ const DummyHistoryItems=[
 
         id:67,
         title:"The Voice",
-        image:theVoice,
+        image:"https://m.media-amazon.com/images/M/MV5BM2VjMjJlMjctNWFlZC00OTRmLTljNmMtNTZkYmEwNDJiMjE5XkEyXkFqcGc@._V1_.jpg",
         genre:"Drama",
         rating:"4.9",
         year:"2025",
@@ -212,7 +195,7 @@ const DummyHistoryItems=[
       {
         id:68,
         title:" The Society" , 
-        image: thesociety,
+        image:"https://img10.hotstar.com/image/upload/f_auto,q_auto/sources/r1/cms/prod/1464/1753121881464-i",
         genre:"Reality",
         rating:"2.9",
         year:"2025",

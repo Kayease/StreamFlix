@@ -8,18 +8,7 @@ import { ArrowLeft, Plus, Check, Play } from 'lucide-react';
 import ContentSection from '@/components/ContentSection';
 import { useNavigate, Link } from 'react-router-dom';
 import { useState, useEffect } from "react";
-
-
-import championshipdream from "../assets/latest/movies/championshipdreams.jpg";
-import goldengoal from "../assets/latest/movies/goldengoal.jpg";
-import javelinchampion from "../assets/latest/movies/javelinchampion.jpg";
-import courtkings from "../assets/latest/movies/court_kings.png";
-import eveningSession from "../assets/latest/movies/eveningsessions.png";
-import championwalibaat from "../assets/latest/movies/championwalibaatbelieveinblue.jpg";
-import t20worldcup from "../assets/latest/movies/t20worldcup.jpg";
-import indiaVsEngland from "../assets/latest/movies/indiavsenglandhockeyworldcupfinal.jpg";
-import footballChampion from "../assets/latest/movies/footballchampion.jpg";
-import indiaVspakistan from "../assets/latest/movies/indiavspak.jpg";
+import { toast } from "@/components/ui/use-toast";
 
 interface SportsEvent {
   id: number;
@@ -56,39 +45,46 @@ export default function SportsPage() {
     e.preventDefault();
     e.stopPropagation();
     
-    const isInWatchlist = watchlist.includes(event.id);
-    const updatedWatchlist = isInWatchlist
-      ? watchlist.filter(id => id !== event.id)
-      : [...watchlist, event.id];
+    const watchlist = JSON.parse(localStorage.getItem('sportsWatchlist') || '[]');
+    const isInWatchlist = watchlist.some((item: any) => item.id === event.id);
+    let updatedWatchlist;
     
-    setWatchlist(updatedWatchlist);
-    
-    // Update localStorage
-    const savedWatchlist = JSON.parse(localStorage.getItem('sportsWatchlist') || '[]');
-    if (!isInWatchlist) {
-      // Add to watchlist
+    if (isInWatchlist) {
+      updatedWatchlist = watchlist.filter((item: any) => item.id !== event.id);
+      localStorage.setItem('sportsWatchlist', JSON.stringify(updatedWatchlist));
+      
+      toast({
+        title: 'Removed from Watchlist',
+        description: `${event.title} has been removed from your watchlist.`,
+        duration: 3000,
+        className: 'bg-destructive text-white border-0',
+      });
+    } else {
       const newItem = {
         id: event.id,
         title: event.title,
-        image: event.image,
-        sport: event.sport,
-        rating: event.rating,
-        year: event.year,
-        description: event.description,
+        thumbnail: event.image,
         isLive: event.isLive,
-        date: event.date,
-        location: event.location,
-        teams: event.teams,
-        duration: event.duration
+        time: event.date,
+        league: event.sport,
+        teams: event.teams || [],
+        score: event.rating,
+        date: event.date
       };
-      localStorage.setItem('sportsWatchlist', JSON.stringify([...savedWatchlist, newItem]));
-      alert(`🏆 ${event.title} has been added to your watchlist!`);
-    } else {
-      // Remove from watchlist
-      const updatedList = savedWatchlist.filter((item: any) => item.id !== event.id);
-      localStorage.setItem('sportsWatchlist', JSON.stringify(updatedList));
-      alert(`❌ ${event.title} has been removed from your watchlist.`);
+      
+      updatedWatchlist = [...watchlist, newItem];
+      localStorage.setItem('sportsWatchlist', JSON.stringify(updatedWatchlist));
+      
+      toast({
+        title: 'Added to Watchlist',
+        description: `${event.title} has been added to your watchlist!`,
+        duration: 3000,
+        className: 'bg-primary text-white border-0',
+      });
     }
+    
+    // Update the local state to reflect the change
+    setWatchlist(updatedWatchlist.map((item: any) => item.id));
   };
 
   const handleBackToHome = () => {
@@ -100,7 +96,7 @@ export default function SportsPage() {
     {
       id: 23,
       title: "Championship Dreams",
-      image: championshipdream,
+      image: "/src/assets/latest/movies/championshipdreams.jpg",
       sport: "Basketball",
       rating: "4.7",
       year: "2023",
@@ -111,7 +107,7 @@ export default function SportsPage() {
     {
       id: 24,
       title: "Golden Goal",
-      image: goldengoal,
+      image: "/src/assets/latest/movies/goldengoal.jpg",
       sport: "Soccer",
       rating: "4.8",
       year: "2023",
@@ -122,7 +118,7 @@ export default function SportsPage() {
     {
       id: 25,
       title: "Javelin Champion",
-      image: javelinchampion,
+      image: "/src/assets/latest/movies/javelinchampion.jpg",
       sport: "Athletics",
       rating: "4.6",
       year: "2023",
@@ -133,7 +129,7 @@ export default function SportsPage() {
     {
       id: 26,
       title: "Court Kings",
-      image: courtkings,
+      image: "/src/assets/latest/movies/indiavsenglandhockeyworldcupfinal.jpg",
       sport: "Basketball",
       rating: "4.9",
       year: "2023",
@@ -144,7 +140,7 @@ export default function SportsPage() {
     {
       id: 27,
       title: "Evening Session",
-      image: eveningSession,
+      image: "/src/assets/latest/movies/indiangameadda.jpg",
       sport: "Cricket",
       rating: "4.8",
       year: "2023",
@@ -155,7 +151,7 @@ export default function SportsPage() {
     {
       id: 28,
       title: "Champion wali baat: Believe in blue",
-      image: championwalibaat,
+      image: "/src/assets/latest/movies/championwalibaatbelieveinblue.jpg",
       sport: "Cricket",
       rating: "4.8",
       year: "2023",
@@ -166,7 +162,7 @@ export default function SportsPage() {
     {
       id: 29,
       title: "T20 World Cup",
-      image: t20worldcup,
+      image: "/src/assets/latest/movies/t20worldcup.jpg",
       sport: "Cricket",
       rating: "4.8",
       year: "2023",
@@ -177,7 +173,7 @@ export default function SportsPage() {
     {
       id: 30,
       title: "India vs England Hockey World Cup Final",
-      image: indiaVsEngland,
+      image: "/src/assets/latest/movies/indiavsenglandhockeyworldcupfinal.jpg",
       sport: "Hockey",
       rating: "4.9",
       year: "2024",
@@ -188,7 +184,7 @@ export default function SportsPage() {
     {
       id: 31,
       title: "Football Champion",
-      image: footballChampion,
+      image: "/src/assets/latest/movies/footballchampion.jpg",
       sport: "Football",
       rating: "4.8",
       year: "2023",
@@ -199,7 +195,7 @@ export default function SportsPage() {
     {
       id: 32,
       title: "India vs Pakistan",
-      image: indiaVspakistan,
+      image: "/src/assets/latest/movies/indiavsenglandhockeyworldcupfinal.jpg",
       sport: "Cricket",
       rating: "4.9",
       year: "2025",
@@ -303,9 +299,19 @@ export default function SportsPage() {
                       onClick={(e) => {
                         e.stopPropagation();
                         if (event.isLive) {
-                          alert(`📺 Now playing live: ${event.title}`);
+                          toast({
+                            title: 'Starting Live Stream',
+                            description: `Preparing ${event.title} live stream...`,
+                            duration: 3000,
+                            className: 'bg-primary text-white border-0',
+                          });
                         } else {
-                          alert(`▶️ Playing trailer for: ${event.title}`);
+                          toast({
+                            title: 'Playing Trailer',
+                            description: `Loading trailer for ${event.title}...`,
+                            duration: 3000,
+                            className: 'bg-primary text-white border-0',
+                          });
                         }
                       }}
                     >
@@ -344,9 +350,19 @@ export default function SportsPage() {
                       onClick={(e) => {
                         e.stopPropagation();
                         if (event.isLive) {
-                          alert(`📺 Now playing live: ${event.title}`);
+                          toast({
+                            title: 'Starting Live Stream',
+                            description: `Preparing ${event.title} live stream...`,
+                            duration: 3000,
+                            className: 'bg-primary text-white border-0',
+                          });
                         } else {
-                          alert(`▶️ Playing trailer for: ${event.title}`);
+                          toast({
+                            title: 'Playing Trailer',
+                            description: `Loading trailer for ${event.title}...`,
+                            duration: 3000,
+                            className: 'bg-primary text-white border-0',
+                          });
                         }
                       }}
                     >

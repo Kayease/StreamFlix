@@ -14,6 +14,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useState, useEffect } from "react";
+import { toast } from "@/components/ui/use-toast";
 
 interface Movie {
   id: number;
@@ -76,12 +77,22 @@ export default function MoviesPage() {
         description: movie.description
       };
       localStorage.setItem('watchlist', JSON.stringify([...savedWatchlist, newItem]));
-      alert(`🎬 ${movie.title} has been added to your wishlist!`);
+      
+      toast({
+        title: "Added to Watchlist",
+        description: `${movie.title} has been added to your wishlist!`,
+        variant: "default",
+      });
     } else {
       // Remove from watchlist
       const updatedList = savedWatchlist.filter((item: any) => item.id !== movie.id);
       localStorage.setItem('watchlist', JSON.stringify(updatedList));
-      alert(`❌ ${movie.title} has been removed from your wishlist.`);
+      
+      toast({
+        title: "Removed from Watchlist",
+        description: `${movie.title} has been removed from your wishlist.`,
+        variant: "destructive",
+      });
     }
   };
 
@@ -105,7 +116,7 @@ export default function MoviesPage() {
   return (
     <div className="min-h-screen bg-gray-950  text-white ">
       <Navbar />
-      <div className=" mx-auto max-w-44xl  px-8 py-24">
+      <div className="mx-auto max-w-44xl px-4 sm:px-6 md:px-8 py-16 md:py-20 lg:py-24">
         <div className="flex flex-col  ">
 
           <Button 
@@ -120,7 +131,7 @@ export default function MoviesPage() {
         </div>
 
             {/* Search and Filter */}
-            <div className="flex flex-col md:flex-row gap-6 mb-8">
+            <div className="flex flex-col sm:flex-row gap-4 md:gap-6 mb-6 md:mb-8">
             
               <Select
                 value={selectedGenre}
@@ -140,7 +151,7 @@ export default function MoviesPage() {
 
             {/* Movies Grid */}
             {allMovies.length > 0 ? (
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 2xl:grid-cols-6 gap-3 sm:gap-4 px-2 sm:px-0">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 2xl:grid-cols-6 gap-3 sm:gap-3 md:gap-4 px-1 sm:px-0">
                 {allMovies.map((movie) => (
                   <Link 
                     to={`/movie/${movie.id}`}
@@ -164,8 +175,8 @@ export default function MoviesPage() {
                       
                       {/* Title and basic info - always visible */}
                       <div className="absolute bottom-0 left-0 right-0 p-2 sm:p-3">
-                        <h3 className="text-white font-bold text-xs sm:text-sm mb-0.5 line-clamp-1 drop-shadow-lg">{movie.title}</h3>
-                        <div className="text-[10px] sm:text-xs text-gray-300 line-clamp-1">
+                        <h3 className="text-white font-bold text-xs sm:text-sm md:text-[13px] mb-0.5 line-clamp-1 drop-shadow-lg">{movie.title}</h3>
+                        <div className="text-[10px] sm:text-xs md:text-[11px] text-gray-300 line-clamp-1">
                           {movie.year} • {movie.genre} • ⭐ {movie.rating}
                         </div>
                         
@@ -173,12 +184,17 @@ export default function MoviesPage() {
                         <div className="sm:hidden flex items-center justify-between gap-1.5 mt-1.5">
                           <Button 
                             size="sm"
-                            className="h-6 px-1.5 bg-white hover:bg-gray-200 text-black text-[10px] font-medium flex-1"
+                            className="h-6 px-1.5 bg-white hover:bg-gray-200 text-black text-[10px] md:text-[11px] font-medium flex-1"
                             onClick={(e) => {
                               e.preventDefault() 
                               e.stopPropagation();
-                              alert(`Playing: ${movie.title}`);
-                             return false;
+                              toast({
+                                title: 'Now Playing',
+                                description: movie.title,
+                                duration: 3000,
+                                className: 'bg-primary text-white border-0',
+                              });
+                              return false;
                             }}
                             
                           >
@@ -223,7 +239,12 @@ export default function MoviesPage() {
                             onClick={(e) => {
                               e.preventDefault();
                               e.stopPropagation();
-                              alert(`Playing: ${movie.title}`);
+                              toast({
+                                title: 'Now Playing',
+                                description: movie.title,
+                                duration: 3000,
+                                className: 'bg-primary text-white border-0',
+                              });
                               return false;
                             }}
                             onMouseDown={(e) => e.stopPropagation()}

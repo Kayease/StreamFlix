@@ -5,6 +5,7 @@ import { movieSections } from '@/data/movies';
 import { useEffect, useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { toast } from '@/components/ui/use-toast';
 
 interface Movie {
   id: number;
@@ -49,10 +50,18 @@ export default function MovieDetailsPage() {
     
     if (isInWatchlist) {
       updatedWatchlist = watchlist.filter((item: any) => item.id !== movie.id);
-      alert(`❌ ${movie.title} has been removed from your watchlist.`);
+      toast({
+        title: "Removed from Watchlist",
+        description: `❌ ${movie.title} has been removed from your watchlist.`,
+        variant: "destructive",
+      });
     } else {
       updatedWatchlist = [...watchlist, movie];
-      alert(`🎬 ${movie.title} has been added to your watchlist!`);
+      toast({
+        title: "Added to Watchlist",
+        description: `🎬 ${movie.title} has been added to your watchlist!`,
+        variant: "default",
+      });
     }
     
     localStorage.setItem('watchlist', JSON.stringify(updatedWatchlist));
@@ -157,7 +166,13 @@ export default function MovieDetailsPage() {
               <div className="flex gap-3 mb-6">
                 <Button 
                   className="bg-primary hover:bg-primary/90 text-primary-foreground"
-                  onClick={() => alert(`Starting to play: ${movie.title}`)}
+                  onClick={() => {
+                    toast({
+                      title: "Starting Playback",
+                      description: `Now playing: ${movie.title}`,
+                      variant: "default",
+                    });
+                  }}
                 >
                   <Play className="mr-2 h-4 w-4" /> Watch Now
                 </Button>
